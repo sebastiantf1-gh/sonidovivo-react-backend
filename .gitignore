@@ -31,13 +31,11 @@ build/
 
 ### VS Code ###
 .vscode/
-# Si quieres que tu equipo de desarrollo comparta la misma configuración de VS Code 
-# (como el archivo launch.json), descomenta las siguientes líneas:
-# !.vscode/extensions.json
-# !.vscode/settings.json
-# !.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
 
-### AWS, Oracle y Seguridad (Personalizado) ###
+### AWS, Oracle y Seguridad ###
 .env
 .env.*
 *.pem
