@@ -1,17 +1,43 @@
-# Compilados de Java y Spring Boot
+HELP.md
 target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
 build/
-.gradle/
-*.class
-*.jar
-*.war
-*.ear
+!**/src/main/**/build/
+!**/src/test/**/build/
 
-# Logs
-logs/
-*.log
+### VS Code ###
+.vscode/
+# Si quieres que tu equipo de desarrollo comparta la misma configuración de VS Code 
+# (como el archivo launch.json), descomenta las siguientes líneas:
+# !.vscode/extensions.json
+# !.vscode/settings.json
+# !.vscode/launch.json
 
-# Entorno, Seguridad y AWS
+### AWS, Oracle y Seguridad (Personalizado) ###
 .env
 .env.*
 *.pem
@@ -20,25 +46,13 @@ Wallet_*/
 *.jks
 *.p12
 *.sso
-
 application-secret.properties
 application-secret.yml
 application-prod.properties
 application-prod.yml
 
-# Directorios de Editores
-.vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
-!.vscode/launch.json
-.idea/
-*.iml
-.settings/
-.classpath
-.project
-
-# Archivos del Sistema Operativo
+### Logs y Sistema Operativo ###
+logs/
+*.log
 .DS_Store
-.DS_Store?
-._*
 Thumbs.db
