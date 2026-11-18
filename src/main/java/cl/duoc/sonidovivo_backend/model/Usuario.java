@@ -15,10 +15,10 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUsuario;
 
-    @Column(name = "nombre", unique = true, nullable = false, length = 100)
+    @Column(name = "nombre", nullable = false, length = 100)
     private String nombreUsuario;
 
-    @Column(name = "apellido", unique = true, nullable = false, length = 100)
+    @Column(name = "apellido", nullable = false, length = 100)
     private String apellidoUsuario;
 
     @Column(nullable = false)
@@ -30,8 +30,8 @@ public class Usuario {
     @Column(name = "numero_telefono", length = 20)
     private String numeroTelefono;
 
+    @Builder.Default
     @Column(name = "fecha_registro",nullable = false, updatable = false)
-    @CreatedDate
     private LocalDateTime fechaRegistro = LocalDateTime.now();
 
     @Column(name = "id_rol", nullable = false)

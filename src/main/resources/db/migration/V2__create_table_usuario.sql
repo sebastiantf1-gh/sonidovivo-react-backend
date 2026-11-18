@@ -1,10 +1,11 @@
 CREATE TABLE usuario (
     id_usuario BIGINT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL UNIQUE,
-    apellido VARCHAR(100) NOT NULL UNIQUE,
+    nombre VARCHAR(100) NOT NULL,
+    apellido VARCHAR(100) NOT NULL,
     password VARCHAR(255) NOT NULL,
     email VARCHAR(150) NOT NULL UNIQUE,
     numero_telefono VARCHAR(20),
     fecha_registro TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    id_rol BIGINT NOT NULL
+    id_rol BIGINT NOT NULL,
+    CONSTRAINT fk_usuario_rol FOREIGN KEY (id_rol) REFERENCES rol(id)
 );
