@@ -1,4 +1,4 @@
-package cl.duoc.sonidovivo_backend.config;
+package cl.duoc.sonidovivo_backend.auth.config;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;

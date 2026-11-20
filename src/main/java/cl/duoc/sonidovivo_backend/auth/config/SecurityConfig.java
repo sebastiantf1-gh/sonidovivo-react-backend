@@ -1,4 +1,4 @@
-package cl.duoc.sonidovivo_backend.config;
+package cl.duoc.sonidovivo_backend.auth.config;
 
 import cl.duoc.sonidovivo_backend.auth.security.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
