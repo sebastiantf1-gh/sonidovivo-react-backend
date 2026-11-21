@@ -40,7 +40,7 @@ public class SecurityConfig {
                 // Sin token (o token inválido/vencido) -> 401. Con token pero sin rol suficiente -> 403.
                 .exceptionHandling(e -> e.authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/v1/auth/login", "/v1/auth/register").permitAll()
+                        .requestMatchers("/v1/auth/login", "/v1/auth/register","/error").permitAll()
                         .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
                         .requestMatchers("/v1/usuarios/**").hasRole("ADMINISTRADOR")
                         .anyRequest().authenticated())
