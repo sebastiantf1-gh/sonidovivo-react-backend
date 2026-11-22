@@ -35,15 +35,14 @@ build/
 !.vscode/settings.json
 !.vscode/launch.json
 
-### AWS, Oracle y Seguridad ###
+### AWS y Seguridad ###
 .env
 .env.*
+!.env.example
 *.pem
 *.ppk
-Wallet_*/
 *.jks
 *.p12
-*.sso
 application-secret.properties
 application-secret.yml
 application-prod.properties
