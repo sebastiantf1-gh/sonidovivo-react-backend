@@ -22,28 +22,33 @@ public class JwtService {
     @Value("${jwt.issuer}")
     private String jwtIssuer;
 
+    @Value("${jwt.audience}")
+    private String jwtAudience;
+
     private SecretKey getSigningKey() {
         return Keys.hmacShaKeyFor(jwtSecret.getBytes(StandardCharsets.UTF_8));
     }
 
-    // El token lleva: sub (id), rol, iss, iat y exp. Nada sensible.
+    // El token lleva: sub (id), rol, iss, aud, iat y exp
     public String generateToken(Usuario usuario, String nombreRol) {
         Date ahora = new Date();
         return Jwts.builder()
                 .subject(usuario.getIdUsuario().toString())
                 .claim("rol", nombreRol)
                 .issuer(jwtIssuer)
+                .audience().add(jwtAudience).and()
                 .issuedAt(ahora)
                 .expiration(new Date(ahora.getTime() + jwtExpiration))
-                .signWith(getSigningKey())
+                .signWith(getSigningKey(), Jwts.SIG.HS256)
                 .compact();
     }
 
-    // Lanza JwtException si la firma, el emisor o la expiración no son válidos.
+    // Lanza JwtException si la firma, el emisor, el destinatario o la expiración no son válidos.
     public Claims extractClaims(String token) {
         return Jwts.parser()
                 .verifyWith(getSigningKey())
                 .requireIssuer(jwtIssuer)
+                .requireAudience(jwtAudience)
                 .build()
                 .parseSignedClaims(token)
                 .getPayload();
